@@ -1,17 +1,60 @@
 'use client';
 
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+
 export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const menuItems = [
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Contact', href: '#contact' }
+  ];
+
   return (
-    <header className="fixed top-0 left-0 w-full z-50 py-6 flex justify-center gap-8 bg-white/80 backdrop-blur-md text-gray-900 text-lg font-medium shadow">
-      {['Home', 'About', 'Projects', 'Skills', 'Contact'].map((item) => (
-        <a
-          key={item}
-          href={`#${item.toLowerCase()}`}
-          className="hover:text-blue-500 transition scroll-smooth"
-        >
-          {item}
-        </a>
-      ))}
-    </header>
+    <motion.header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'py-4 bg-white/10 backdrop-blur-xl border-b border-white/10 shadow-lg' 
+          : 'py-6 bg-transparent'
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <nav className="container mx-auto px-6">
+        <div className="flex justify-center">
+          <div className="flex gap-8 md:gap-12">
+            {menuItems.map((item, index) => (
+              <motion.a
+                key={item.name}
+                href={item.href}
+                className={`text-lg font-medium transition-all duration-300 relative group ${
+                  scrolled ? 'text-white hover:text-purple-300' : 'text-white hover:text-purple-200'
+                }`}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-blue-500 transition-all duration-300 group-hover:w-full" />
+              </motion.a>
+            ))}
+          </div>
+        </div>
+      </nav>
+    </motion.header>
   );
 }
