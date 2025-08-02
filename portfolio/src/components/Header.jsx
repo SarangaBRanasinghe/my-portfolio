@@ -1,3 +1,5 @@
+'use client';
+
 export default function Header() {
   return (
     <header className="w-full py-6 flex justify-center gap-8 bg-transparent text-back text-lg font-medium">

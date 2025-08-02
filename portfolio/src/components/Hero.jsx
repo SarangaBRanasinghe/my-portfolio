@@ -1,13 +1,24 @@
+'use client'; 
+
+import { motion } from 'framer-motion';
+
 export default function Hero() {
   return (
-    <section
+    <motion.section
       id="home"
       className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 py-10 bg-gradient-to-br from-purple-800 to-blue-900 relative"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
     >
       <div className="absolute inset-0 bg-[radial-gradient(#ffffff22_1px,transparent_1px)] bg-[size:40px_40px] opacity-10 z-0" />
 
       <div className="z-10 mb-8 md:mb-0 md:mr-12">
-        <img src="/profile.png" alt="Profile" className="w-60 h-auto rounded-full object-cover" />
+        <img
+          src="/profile.png"
+          alt="Profile"
+          className="w-60 h-auto rounded-full object-cover"
+        />
       </div>
 
       <div className="z-10 text-center md:text-left text-white">
@@ -22,6 +33,7 @@ export default function Hero() {
           Download Resume
         </a>
       </div>
-    </section>
+    </motion.section>
   );
 }
+
