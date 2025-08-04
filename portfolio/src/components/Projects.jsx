@@ -6,8 +6,8 @@ import { useState, useEffect } from 'react';
 export default function Projects() {
   const projectList = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured e-commerce solution with payment integration, user authentication, and admin dashboard.',
+      title: 'Sports Management System',
+      description: ' PlayFit is a centralized, web-based sports management system developed to streamline the coordination between players, coaches, stadium owners, health officers, and administrators. ',
       tech: ['Next.js', 'Node.js', 'MongoDB', 'Stripe'],
       link: '#',
       image: '🛍️',
