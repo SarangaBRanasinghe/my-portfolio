@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Smooch } from 'next/font/google';
 
@@ -12,6 +12,14 @@ const smooch = Smooch({
 export default function Hero() {
   const [particles, setParticles] = useState([]);
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  
+  // Animation controls
+  const sectionControls = useAnimation();
+  const imageControls = useAnimation();
+  const helloControls = useAnimation();
+  const nameControls = useAnimation();
+  const roleControls = useAnimation();
+  const buttonControls = useAnimation();
   
   const roles = ["Software Engineer", "UI UX Designer"];
 
@@ -39,13 +47,47 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
+  // Navigation animation handler
+  useEffect(() => {
+    // Function to trigger animations
+    const triggerAnimations = () => {
+      sectionControls.start({ opacity: 1, y: 0 });
+      imageControls.start({ scale: 1, opacity: 1 });
+      helloControls.start({ opacity: 1, x: 0 });
+      nameControls.start({ opacity: 1, x: 0 });
+      roleControls.start({ opacity: 1, x: 0 });
+      buttonControls.start({ opacity: 1, y: 0 });
+    };
+
+    // Listen for hash changes (navbar navigation)
+    const handleHashChange = () => {
+      if (window.location.hash === '#home' || window.location.hash === '') {
+        setTimeout(triggerAnimations, 100);
+      }
+    };
+
+    // Check if already on home section on mount
+    if (window.location.hash === '#home' || window.location.hash === '' || window.location.pathname === '/') {
+      setTimeout(triggerAnimations, 300);
+    }
+
+    // Add event listener for navigation
+    window.addEventListener('hashchange', handleHashChange);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, [sectionControls, imageControls, helloControls, nameControls, roleControls, buttonControls]);
+
   return (
     <motion.section
       id="home"
       className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 py-32 bg-gradient-to-br from-purple-900 via-purple-800 to-blue-900 relative overflow-hidden"
       initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={sectionControls}
+      whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
+      viewport={{ once: false, amount: 0.3 }}
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-700/20 via-transparent to-transparent" />
@@ -80,8 +122,10 @@ export default function Hero() {
         <motion.div 
           className="flex-shrink-0"
           initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
+          animate={imageControls}
+          whileInView={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: false, amount: 0.5 }}
         >
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-blue-500 rounded-full blur-xl opacity-30 scale-110" />
@@ -98,8 +142,10 @@ export default function Hero() {
           <motion.h2 
             className={`text-6xl md:text-7xl lg:text-8xl mb-6 text-gray-100 ${smooch.className}`}
             initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            animate={helloControls}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: false, amount: 0.5 }}
           >
             Hello,
           </motion.h2>
@@ -107,8 +153,10 @@ export default function Hero() {
           <motion.h1 
             className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent leading-tight"
             initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            animate={nameControls}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: false, amount: 0.5 }}
           >
             I AM SARANGA
           </motion.h1>
@@ -116,8 +164,10 @@ export default function Hero() {
           <motion.div
             className="h-16 md:h-20 flex items-center mb-8"
             initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            animate={roleControls}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: false, amount: 0.5 }}
           >
             <motion.p 
               key={currentRoleIndex}
@@ -136,8 +186,10 @@ export default function Hero() {
           
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={buttonControls}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
+            viewport={{ once: false, amount: 0.5 }}
           >
             <a
               href="/resume.pdf"
