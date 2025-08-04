@@ -33,9 +33,10 @@ export default function Header() {
       animate={{ y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <nav className="container mx-auto px-6">
+      <nav className="container mx-auto px-6 md:px-20">
         <div className="flex justify-center">
-          <div className="flex gap-8 md:gap-12">
+          {/* Increased spacing between menu items */}
+          <div className="flex gap-12 md:gap-16 lg:gap-20">
             {menuItems.map((item, index) => (
               <motion.a
                 key={item.name}

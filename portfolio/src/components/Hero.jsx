@@ -17,7 +17,7 @@ export default function Hero() {
         duration: 3 + Math.random() * 2,
       }));
     };
-
+ 
     setParticles(generateParticles());
   }, []);
 
@@ -56,10 +56,11 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between z-10">
+      {/* Updated container with consistent padding and reduced gap */}
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 z-10">
         {/* Profile Image */}
         <motion.div 
-          className="mb-12 md:mb-0 md:mr-16"
+          className="flex-shrink-0"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -75,7 +76,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Text Content */}
-        <div className="text-center md:text-left text-white max-w-2xl">
+        <div className="text-center md:text-left text-white max-w-2xl flex-1">
           <motion.h2 
             className="text-4xl md:text-5xl font-light italic mb-4 text-gray-100"
             initial={{ opacity: 0, x: -50 }}
