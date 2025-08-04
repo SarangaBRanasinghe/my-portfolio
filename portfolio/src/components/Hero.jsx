@@ -88,7 +88,7 @@ export default function Hero() {
             <img 
               src="/profile.png" 
               alt="Saranga Profile" 
-              className="relative w-72 h-72 md:w-80 md:h-80 rounded-full object-cover border-4 border-white/10 shadow-2xl" 
+              className="relative w-72 h-72 md:w-82 md:h-82 rounded-full object-cover border-4 border-white/10 shadow-2xl" 
             />
           </div>
         </motion.div>

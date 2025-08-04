@@ -26,7 +26,7 @@ export default function About() {
             viewport={{ once: true }}
           >
             About Me
-            <span className="absolute -bottom-2 left-0 md:left-0 w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" />
+            {/* <span className="absolute -bottom-2 left-0 md:left-0 w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" /> */}
           </motion.h2>
           
           <motion.div
@@ -38,10 +38,12 @@ export default function About() {
           >
             <div>
               <p className="text-lg leading-relaxed text-gray-700 mb-6">
-                I'm Saranga, a passionate full stack developer who loves turning creative ideas into scalable, user-friendly web applications. With a keen eye for design and a deep understanding of modern technologies, I bridge the gap between beautiful interfaces and robust backend systems.
+                I am Saranga, a passionate Software Engineer and UI/UX Designer dedicated to transforming creative ideas into engaging, user-friendly digital experiences. With clean design and functional development, I create seamless interfaces and scalable web applications are both beautiful and intuitive.I stay up to date modern technologies and adapt quickly evolving trends.   
+                Whether I am wireframing a user flow or deploying a full-stack application, I bring both a designer’s eye for detail and a developer’s precision to every project.
+                
               </p>
               <p className="text-lg leading-relaxed text-gray-700 mb-8">
-                My journey in software development is driven by the desire to create meaningful digital experiences that make a real impact on users' lives. I believe in writing clean, efficient code and following best practices to deliver exceptional results.
+              I believe in writing clean, efficient code and following best practices to deliver exceptional results. My goal is to create meaningful digital products that not only look good but also effectively solve real-world problems.
               </p>
               
               <div className="flex flex-wrap gap-4">
