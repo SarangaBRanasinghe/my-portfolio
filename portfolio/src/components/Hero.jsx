@@ -11,6 +11,9 @@ const smooch = Smooch({
 
 export default function Hero() {
   const [particles, setParticles] = useState([]);
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  
+  const roles = ["Software Engineer", "UI UX Designer"];
 
   // Generate particles only on client side after component mounts
   useEffect(() => {
@@ -25,6 +28,15 @@ export default function Hero() {
     };
 
     setParticles(generateParticles());
+  }, []);
+
+  // Role switching effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+    }, 3000); // Change every 3 seconds
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -62,8 +74,8 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Updated container with consistent padding and reduced gap */}
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 z-10">
+      {/* Updated container with better spacing distribution */}
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-16 md:gap-20 lg:gap-24 z-10">
         {/* Profile Image */}
         <motion.div 
           className="flex-shrink-0"
@@ -81,10 +93,10 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Text Content */}
-        <div className="text-center md:text-left text-white max-w-2xl flex-1">
+        {/* Text Content with better positioning */}
+        <div className="text-center md:text-left text-white max-w-2xl">
           <motion.h2 
-            className={`text-4xl md:text-5xl font-light italic mb-4 text-gray-100 ${smooch.className}`}
+            className={`text-6xl md:text-7xl lg:text-8xl mb-6 text-gray-100 ${smooch.className}`}
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -93,7 +105,7 @@ export default function Hero() {
           </motion.h2>
           
           <motion.h1 
-            className="text-5xl md:text-7xl font-black mb-6 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent leading-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent leading-tight"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -101,14 +113,26 @@ export default function Hero() {
             I AM SARANGA
           </motion.h1>
           
-          <motion.p 
-            className="text-2xl md:text-3xl font-medium mb-8 text-gray-200"
+          <motion.div
+            className="h-16 md:h-20 flex items-center mb-8"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            Full stack Developer
-          </motion.p>
+            <motion.p 
+              key={currentRoleIndex}
+              className="text-2xl md:text-3xl font-medium text-gray-200"
+              initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
+              transition={{ 
+                duration: 0.6,
+                ease: [0.4, 0, 0.2, 1] // Material Design easing
+              }}
+            >
+              {roles[currentRoleIndex]}
+            </motion.p>
+          </motion.div>
           
           <motion.div
             initial={{ opacity: 0, y: 30 }}
