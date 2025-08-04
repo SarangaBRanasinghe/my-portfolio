@@ -2,6 +2,12 @@
 
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { Smooch } from 'next/font/google';
+
+const smooch = Smooch({ 
+  subsets: ['latin'],
+  weight: '400'
+});
 
 export default function Hero() {
   const [particles, setParticles] = useState([]);
@@ -17,7 +23,7 @@ export default function Hero() {
         duration: 3 + Math.random() * 2,
       }));
     };
- 
+
     setParticles(generateParticles());
   }, []);
 
@@ -78,11 +84,10 @@ export default function Hero() {
         {/* Text Content */}
         <div className="text-center md:text-left text-white max-w-2xl flex-1">
           <motion.h2 
-            className="text-4xl md:text-5xl font-light italic mb-4 text-gray-100"
+            className={`text-4xl md:text-5xl font-light italic mb-4 text-gray-100 ${smooch.className}`}
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            style={{ fontFamily: 'serif' }}
           >
             Hello,
           </motion.h2>
