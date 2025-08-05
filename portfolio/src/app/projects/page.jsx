@@ -1,4 +1,3 @@
-// src/app/projects/page.jsx
 
 'use client';
 
