@@ -279,7 +279,7 @@ export default function Projects() {
               transition={{ duration: 0.6, delay: 1 }}
               viewport={{ once: true }}
             >
-              <motion.button
+              <motion.button  onClick={() => window.location.href = '/projects'}
                 className="w-full px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
