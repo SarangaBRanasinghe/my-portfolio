@@ -2,51 +2,139 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Projects() {
   const projectList = [
     {
-      title: 'Sports Management System',
+      title: 'PLAYFIT SPORTS MANAGEMENT SYSTEM',
       description: ' PlayFit is a centralized, web-based sports management system developed to streamline the coordination between players, coaches, stadium owners, health officers, and administrators. ',
-      tech: ['Next.js', 'Node.js', 'MongoDB', 'Stripe'],
-      link: '#',
-      image: '🛍️',
+      tech: [
+        { name: '', icon: '/devicon--angular.svg' },
+        { name: '', icon: '/logos--nodejs.svg' },
+        { name: '', icon: '/logos--bootstrap.svg' },
+        { name: '', icon: '/devicon--mysql-wordmark (1).svg' }
+      ],
+      link: 'https://github.com/orgs/TheCodeExplorers-PlayFit/repositories',
+      image: '/playfit landing.png',
       color: 'from-blue-500 to-purple-600'
     },
     {
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates, team collaboration, and project tracking.',
-      tech: ['React', 'Socket.io', 'Express', 'PostgreSQL'],
-      link: '#',
-      image: '📋',
-      color: 'from-green-500 to-blue-500'
+      title: 'AUTO VAULT - FREE VEHICLE REGISTRATION SYSTEM ',
+ 
+      description: 'AutoVault is a web-based vehicle registration system that allows users to register, add, update, and remove vehicle information with ease. ',
+      tech: [
+        { name: '', icon: '/devicon--html5-wordmark.svg' },
+        { name: '', icon: '/logos--tailwindcss-icon.svg' },
+        { name: '', icon: '/material-icon-theme--laravel.svg' },
+        { name: '', icon: '/devicon--mysql-wordmark (1).svg' }
+      ],
+      link: 'https://github.com/SarangaBRanasinghe/my-crud-app',
+      image: '/laravelp.png',
+      color: 'from-pink-500 to-red-50'
     },
     {
-      title: 'Social Media Dashboard',
-      description: 'An analytics dashboard for social media management with data visualization and automated reporting.',
-      tech: ['Vue.js', 'Python', 'FastAPI', 'Chart.js'],
-      link: '#',
-      image: '📊',
+      title: 'KIDNEY TRACK – MOBILE APP UI',
+      description: 'User-friendly, accessible, and research-aligned interfaces tailored to medical requirements and user needs.',
+      tech: [
+        { name: '', icon: '/logos--figma.svg' }
+      ],
+      link: 'https://dribbble.com/shots/26326133-KIDNEY-TRACK?utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share',
+      image: '/ckd.png',
       color: 'from-pink-500 to-red-500'
     },
     {
-      title: 'Learning Management System',
-      description: 'A comprehensive LMS platform with video streaming, progress tracking, and interactive assessments.',
-      tech: ['Angular', 'NestJS', 'MySQL', 'AWS'],
-      link: '#',
-      image: '🎓',
-      color: 'from-purple-500 to-indigo-600'
+      title: 'LINE DRAWING ROBOT',
+      description: ' Marquer is a cutting-edge device designed to conveniently and precisely mark grounds with the ability to draw lines in any direction, save and reuse designs as  presets, and control the device remotely via a user-friendly web app.',
+      tech: [
+        { name: '', icon: '/simple-icons--easyeda.svg' },
+        { name: '', icon: '/hugeicons--c-programming.svg' },
+        { name: '', icon: '/devicon--arduino.svg' }
+      ],
+      link: 'https://www.linkedin.com/posts/activity-7236297034708754432-HfeM?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETrCAYBMqUBReyyJ1_rNue-Z3-_fFZAYPE',
+      image: '/hardwarep.jpg',
+      color: 'from-purple-500 to-indigo-500'
+    },
+    {
+      title: ' LASSANA LANKA – SMART WASTE MANAGEMENT SYSTEM MOBILE APP UI',
+      description: 'Smart waste management concept aimed to tackle waste overflow and irregular garbage collection by leveraging IoT-enabled technology and a mobile application.',
+      tech: [
+        { name: '', icon: '/logos--figma.svg' }
+      ],
+      link: 'https://dribbble.com/shots/26326133-KIDNEY-TRACK?utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share',
+      image: '/lassana lanka.png',
+      color: 'from-orange-500 to-yellow-500'
+    },
+    {
+      title: 'ENTREMATE LANKA – ONLINE FUNDRAISING PLATFORM UI',
+      description: 'A web-based fundraising platform aimed at connecting social entrepreneurs in Sri Lanka with investors and financial institutions.User-friendly interface tailored to enhance engagement, accessibility, and ease of use.',
+      tech: [
+        { name: '', icon: '/logos--figma.svg' }
+      ],
+      link: 'https://dribbble.com/shots/26326133-KIDNEY-TRACK?utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share',
+      image: '/entrimate lanka.png',
+      color: 'from-teal-500 to-cyan-500'
+    },
+    {
+      title: 'ONLINE SHOPPING WEB SITE UI',
+      description: 'An intuitive online shopping website! Designed with a clean, user-friendly interface, this platform offers a seamless shopping experience with easy navigation and vibrant product displays.',
+      tech: [
+        { name: '', icon: '/logos--figma.svg' }
+      ],
+      ink: 'https://dribbble.com/shots/26326133-KIDNEY-TRACK?utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share',
+      image: '/fashion store.png',
+      color: 'from-teal-500 to-cyan-500'
+    },
+    {
+      title: 'FLORABLOOM APP UI DESIGN',
+      description: 'A sleek and floral-themed UI for a flower shop app, designed to provide a delightful user experience. From easy login to browsing and purchasing gorgeous bouquets,this app makes every step enjoyable.',
+      tech: [
+        { name: '', icon: '/logos--figma.svg' }
+      ],
+      link: 'https://dribbble.com/shots/26326133-KIDNEY-TRACK?utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share',
+      image: '/floora (1).png',
+      color: 'from-teal-500 to-cyan-500'
+    },
+    {
+      title: 'FURNITURE MOBILE APP UI DESIGN',
+      description: 'Explore this clean, modern, and intuitive UI for StyleNest, a furniture shopping app that blends elegant design with a seamless user experience. Featuring a calming color palette and clear navigation, the app showcases various furniture collections, allowing users to browse and customize their interior selections effortlessly.',
+      tech: [
+       { name: '', icon: '/logos--figma.svg' }
+      ],
+       link: 'https://dribbble.com/shots/26326133-KIDNEY-TRACK?utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share',
+      image: '/stylenest.png',
+      color: 'from-teal-500 to-cyan-500'
+    },
+    {
+      title: 'COFFEE SHOP MOBILE APP UI DESIGN',
+      description: 'The warm earthy tones combined with a touch of gold bring out the cozy ambiance of favorite coffee shop. This UI makes browsing and selecting  perfect brew simple, seamless, and oh-so-inviting',
+      tech: [
+        { name: '', icon: '/logos--figma.svg' }
+      ],
+      link: 'https://dribbble.com/shots/26326133-KIDNEY-TRACK?utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share',
+      image: '/coffe ui.png',
+      color: 'from-teal-500 to-cyan-500'
+    },
+    {
+      title: 'PLAYFIT SPORTS MANAGEMENT SYSTEM UI DESIGN',
+      description: 'A clean and modern UI design for PlayFit, a web-based sports management system. This interface focuses on user-friendly navigation for stadium owners, coaches, and health officers to manage bookings, player records, and appointments efficiently.',
+      tech: [
+        { name: '', icon: '/logos--figma.svg' }
+      ],
+      link: 'https://dribbble.com/shots/26326133-KIDNEY-TRACK?utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share',
+      image: '/pf1.png',
+      color: 'from-teal-500 to-cyan-500'
     }
   ];
 
   const projectStats = [
-    { number: '06+', label: 'Web Projects' },
-    { number: '05+', label: 'Mobile Apps' },
-    { number: '10+', label: 'UI/UX Designs' }
+    { number: '02+', label: 'Web Projects' },
+    { number: '07+', label: 'UI/UX Designs' },
+    { number: '01+', label: 'Other' },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const cardsPerView = 2;
+  const cardsPerView = 1;
   const totalGroups = Math.ceil(projectList.length / cardsPerView);
 
   useEffect(() => {
@@ -122,7 +210,7 @@ export default function Projects() {
           My <span className="text-white-400">Projects</span>
         </h2>
         <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-          Check out my latest Web, UI/UX, and Mobile App projects.
+          Check out my latest Web, UI/UX, and Other projects.
           <br />
           Click below to explore my portfolio!
         </p>
@@ -177,7 +265,7 @@ export default function Projects() {
                 Project Overview
               </h3>
               <p className="text-gray-300 leading-relaxed">
-                Showcasing innovative web applications, mobile solutions, and UI/UX designs. 
+                Showcasing innovative web applications, UI/UX designs and other projects. 
                 Each project demonstrates modern development practices, user-centered design, 
                 and cutting-edge technologies.
               </p>
@@ -228,44 +316,87 @@ export default function Projects() {
                       animate="animate"
                       exit="exit"
                       whileHover="hover"
-                      className="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-purple-500/10 cursor-pointer"
+                      className="group relative bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-purple-500/10 cursor-pointer"
                     >
-                      {/* Project Content */}
-                      <div className="flex gap-4 items-start">
-                        {/* Project Icon */}
-                        <motion.div 
-                          className={`flex-shrink-0 inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-r ${project.color} text-white text-2xl shadow-lg transition-all duration-300 group-hover:shadow-xl`}
-                          whileHover={{ scale: 1.1, rotate: 5 }}
+                      {/* Project Image */}
+                      <div className="relative h-48 overflow-hidden">
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-110"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                        
+                        {/* Project Link Overlay */}
+                        <motion.a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="absolute top-4 right-4 p-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300 opacity-0 group-hover:opacity-100"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
                         >
-                          {project.image}
-                        </motion.div>
+                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </motion.a>
+                      </div>
 
-                        {/* Project Details */}
-                        <div className="flex-1">
-                          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 transition-all duration-300">
-                            {project.title}
-                          </h3>
+                      {/* Project Content */}
+                      <div className="p-6">
+                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 transition-all duration-300">
+                          {project.title}
+                        </h3>
+                        
+                        <p className="text-gray-300 mb-4 text-sm leading-relaxed line-clamp-3">
+                          {project.description}
+                        </p>
+                        
+                        {/* Tech Stack - Updated */}
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {project.tech.map((tech, techIndex) => (
+                            <motion.div
+                              key={techIndex}
+                              className="flex items-center justify-center p-2 rounded-lg hover:bg-white/10 transition-all duration-200"
+                              whileHover={{ scale: 1.1, y: -2 }}
+                            >
+                              <div className="relative w-6 h-6 flex items-center justify-center">
+                                <Image
+                                  src={tech.icon}
+                                  alt={tech.name}
+                                  width={24}
+                                  height={24}
+                                  className="object-contain max-w-6 max-h-6"
+                                />
+                              </div>
+                            </motion.div>
+                          ))}
+                        </div>
+
+                        {/* Project Actions */}
+                        <div className="flex items-center justify-between">
+                          <motion.a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium text-sm transition-colors duration-300"
+                            whileHover={{ x: 5 }}
+                          >
+                            View Project
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                          </motion.a>
                           
-                          <p className="text-gray-300 mb-3 text-sm leading-relaxed">
-                            {project.description}
-                          </p>
-                          
-                          <div className="flex flex-wrap gap-2">
-                            {project.tech.map((tech, techIndex) => (
-                              <span
-                                key={techIndex}
-                                className="px-2 py-1 text-xs bg-white/10 text-gray-200 rounded-full border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-200"
-                              >
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
+                          <div className={`h-2 w-2 rounded-full bg-gradient-to-r ${project.color}`} />
                         </div>
                       </div>
 
-                      {/* Hover effect overlay */}
+                      {/* Hover effect overlay - Updated with lower opacity */}
                       <motion.div 
-                        className={`absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r ${project.color} rounded-2xl transition-opacity duration-500 -z-10 blur-xl`}
+                        className={`absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-r ${project.color} rounded-2xl transition-opacity duration-500 -z-10 blur-xl`}
                         initial={{ scale: 0.8 }}
                         whileHover={{ scale: 1 }}
                         transition={{ duration: 0.3 }}
@@ -347,7 +478,7 @@ export default function Projects() {
               </p>
               
               <motion.a
-                href="https://github.com/yourusername"
+                href="https://github.com/SarangaBRanasinghe"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
