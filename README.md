@@ -50,18 +50,6 @@ Visit my live portfolio: [Your Live Site URL Here]
 
 ---
 
-### 🗂 Project Structure
-```
-src/
-├── app/
-│   ├── page.jsx
-│   └── projects/
-│       └── [slug]/page.jsx
-├── components/
-│   └── Projects.jsx
-├── lib/
-│   └── projects.js
-```
 
 ---
 Feel free to fork this repo and explore. Contributions and feedback are always welcome!
