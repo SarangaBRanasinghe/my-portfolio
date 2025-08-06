@@ -53,7 +53,7 @@ const skills = {
   ],
   'Databases': [
     { Icon: SiMysql, color: '#4479A1', name: 'MySQL' },
-    { Icon: MSSQLIcon, color: '#CC2927', name: 'MS SQL Server' }
+    { Icon: MSSQLIcon, color: '#CC2927', name: 'MS SQL' }
   ]
 };
 
