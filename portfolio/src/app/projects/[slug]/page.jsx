@@ -125,31 +125,10 @@ export default function ProjectDetailPage({ params }) {
           className="px-6 py-8"
           variants={itemVariants}
         >
-          <div className="max-w-7xl mx-auto flex items-center justify-between">
-            <Link 
-              href="/projects"
-              className="flex items-center gap-2 text-white/80 hover:text-white transition-colors duration-300"
-            >
-              <motion.div
-                whileHover={{ x: -3 }}
-                transition={{ duration: 0.2 }}
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                </svg>
-              </motion.div>
-              <span className="font-medium">Back to Projects</span>
-            </Link>
-
-            <motion.div
-              className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20"
-              whileHover={{ scale: 1.05 }}
-            >
-              <span className="text-white/80 text-sm">Project Details</span>
-            </motion.div>
+          <div className="max-w-7xl mx-auto">
           </div>
         </motion.nav>
-
+         <br /><br />
         {/* Main Content */}
         <div className="max-w-7xl mx-auto px-6 pb-16">
           {/* Hero Section */}
@@ -209,7 +188,7 @@ export default function ProjectDetailPage({ params }) {
 
           {/* Project Image */}
           <motion.div 
-            className="mb-16 relative"
+            className="mb-16 relative max-w-5xl mx-auto"
             variants={imageVariants}
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
@@ -220,13 +199,13 @@ export default function ProjectDetailPage({ params }) {
                 transition={{ duration: 3, repeat: Infinity }}
               />
               
-              <div className="relative aspect-video md:aspect-[16/10]">
+              <div className="relative aspect-video">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
@@ -242,7 +221,7 @@ export default function ProjectDetailPage({ params }) {
               variants={itemVariants}
             >
               <h2 className="text-3xl font-bold text-white mb-8">Technologies Used</h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
                 {project.tech.map((tech, index) => (
                   <motion.div
                     key={index}
@@ -251,19 +230,16 @@ export default function ProjectDetailPage({ params }) {
                     custom={index}
                     whileHover={{ scale: 1.05, y: -5 }}
                   >
-                    <div className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all duration-300 text-center">
-                      <div className="w-16 h-16 mx-auto mb-4 p-3 bg-white/10 rounded-xl flex items-center justify-center">
+                    <div className="p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 hover:border-white/20 transition-all duration-300 text-center">
+                      <div className="w-12 h-12 mx-auto flex items-center justify-center">
                         <Image
                           src={tech.icon}
                           alt={tech.name || 'Technology'}
-                          width={40}
-                          height={40}
+                          width={32}
+                          height={32}
                           className="object-contain"
                         />
                       </div>
-                      <p className="text-white/80 text-sm font-medium">
-                        {tech.name || tech.icon.split('/').pop().split('.')[0].replace(/-/g, ' ').toUpperCase()}
-                      </p>
                     </div>
                   </motion.div>
                 ))}
