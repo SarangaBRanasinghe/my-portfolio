@@ -80,7 +80,7 @@ export const projectList = [
       tech: [
         { name: '', icon: '/logos--figma.svg' }
       ],
-      ink: 'https://dribbble.com/shots/26326133-KIDNEY-TRACK?utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share',
+      link: 'https://dribbble.com/shots/26326133-KIDNEY-TRACK?utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=KIDNEY%20TRACK&utm_medium=Social_Share',
       image: '/fashion store.png',
       color: 'from-teal-500 to-cyan-500'
     },
