@@ -8,16 +8,10 @@ I'm a curious builder with a strong grasp of modern technologies. I bridge the g
 Whether it's wireframing a user flow or deploying a full stack application, I bring both a designer's eye and a developer's precision.
 
 ## 🛠️ Tech Stack
-- **Frontend:** HTML5, CSS3, Tailwind CSS, Angular, Bootstrap
-- **Backend:** Node.js, Laravel, MySQL
-- **UI/UX:** Figma, Adobe XD
-- **Hardware:** Arduino, EasyEDA
+- **Frontend:**NextJS, Tailwind CSS
+- **Backend:** Node.js
+- **UI/UX:** Figma
  
-### 3. **UI/UX Projects**
-Beautiful mobile and web UI concepts built using Figma:
-- Kidney Track, Lassana Lanka, FloraBloom, Coffee Shop UI, etc.
-- [Dribbble Profile](https://dribbble.com/Saranga183)
-
 
 ## 🌐 Portfolio
 Visit my live portfolio: [http://localhost:3000/]
