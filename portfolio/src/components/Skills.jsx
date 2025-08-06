@@ -18,14 +18,14 @@ import { FaJava } from 'react-icons/fa';
 
 // Custom C icon as SVG since react-icons doesn't have a good C icon
 const CIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-12 h-12" fill="currentColor">
+  <svg viewBox="0 0 24 24" className="w-8 h-8" fill="currentColor">
     <path d="M16.5985 9.4414c-.6172-.8789-1.4648-1.5117-2.543-1.8984-.6406-.2305-1.3359-.3457-2.0859-.3457-1.2539 0-2.3789.2891-3.375.8672-.9961.5781-1.7773 1.3867-2.3438 2.4258-.5664 1.0391-.8496 2.2266-.8496 3.5625 0 1.3359.2832 2.5234.8496 3.5625.5665 1.0391 1.3477 1.8477 2.3438 2.4258.9961.5781 2.1211.8672 3.375.8672.75 0 1.4453-.1152 2.0859-.3457 1.0782-.3867 1.9258-1.0195 2.543-1.8984l-2.25-1.5c-.3516.4922-.7734.8516-1.2656 1.0781-.4922.2266-.9961.3398-1.5117.3398-.7969 0-1.4961-.1875-2.0977-.5625-.6016-.375-1.0664-.8906-1.3945-1.5469-.3281-.6563-.4922-1.3945-.4922-2.2148 0-.8203.1641-1.5586.4922-2.2148.3281-.6563.793-1.1719 1.3945-1.5469.6016-.375 1.3008-.5625 2.0977-.5625.5156 0 1.0195.1133 1.5117.3398.4922.2266.9141.5859 1.2656 1.0781l2.25-1.5z"/>
   </svg>
 );
 
 // Custom MS SQL Server icon as SVG
 const MSSQLIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-12 h-12" fill="currentColor">
+  <svg viewBox="0 0 24 24" className="w-8 h-8" fill="currentColor">
     <path d="M18.5 2.5c1.1 0 2 .9 2 2v15c0 1.1-.9 2-2 2h-13c-1.1 0-2-.9-2-2v-15c0-1.1.9-2 2-2h13m0-1.5h-13c-1.9 0-3.5 1.6-3.5 3.5v15c0 1.9 1.6 3.5 3.5 3.5h13c1.9 0 3.5-1.6 3.5-3.5v-15c0-1.9-1.6-3.5-3.5-3.5z"/>
     <path d="M7.5 7h9v1.5h-9V7zm0 3h9v1.5h-9V10zm0 3h6v1.5h-6V13zm0 3h9v1.5h-9V16z"/>
   </svg>
@@ -109,16 +109,13 @@ export default function SkillsSection() {
                     transition: { type: "spring", stiffness: 400, damping: 10 }
                   }}
                 >
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/10 hover:bg-white/15 hover:border-white/20 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl w-20 h-20 flex items-center justify-center shadow-xl border border-white/10 hover:bg-white/15 hover:border-white/20 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10">
                     <div 
-                      className="text-6xl mb-3 transition-all duration-300 filter drop-shadow-lg"
+                      className="transition-all duration-300 filter drop-shadow-lg"
                       style={{ color: color }}
                     >
-                      <Icon />
+                      <Icon className="w-8 h-8" />
                     </div>
-                    <p className="text-sm font-medium text-gray-200 text-center">
-                      {name}
-                    </p>
                   </div>
                   
                   {/* Tooltip */}
