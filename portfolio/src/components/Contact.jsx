@@ -105,7 +105,7 @@ export default function Contact() {
             Let's Work Together
           </h2>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-            Ready to bring your ideas to life? I'd love to hear about your project and discuss how we can create something amazing together.
+            Ready to bring your ideas to life? I would love to hear about your project and discuss how we can create something amazing together.
           </p>
         </motion.div>
 
@@ -210,7 +210,7 @@ export default function Contact() {
             <div>
               <h3 className="text-2xl font-bold text-white mb-4">Get In Touch</h3>
               <p className="text-gray-200 leading-relaxed mb-6">
-                I'm always open to discussing new opportunities, interesting projects, and creative collaborations. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                I am always open to discussing new opportunities, interesting projects, and creative collaborations. Whether you have a question or just want to say hi, I will try my best to get back to you!
               </p>
             </div>
 
