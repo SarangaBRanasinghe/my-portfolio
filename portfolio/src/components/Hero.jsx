@@ -82,7 +82,7 @@ export default function Hero() {
   return (
     <motion.section
       id="home"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 py-32 bg-gradient-to-br from-purple-900 via-purple-800 to-blue-900 relative overflow-hidden"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-20 py-16 md:py-32 bg-gradient-to-br from-purple-900 via-purple-800 to-blue-900 relative overflow-hidden"
       initial={{ opacity: 0, y: 50 }}
       animate={sectionControls}
       whileInView={{ opacity: 1, y: 0 }}
@@ -117,7 +117,7 @@ export default function Hero() {
       </div>
 
       {/* Updated container with better spacing distribution */}
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-16 md:gap-20 lg:gap-24 z-10">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20 lg:gap-24 z-10">
         {/* Profile Image */}
         <motion.div 
           className="flex-shrink-0"
@@ -132,7 +132,7 @@ export default function Hero() {
             <img 
               src="/profile.png" 
               alt="Saranga Profile" 
-              className="relative w-72 h-72 md:w-82 md:h-82 rounded-full object-cover border-4 border-white/10 shadow-2xl" 
+              className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-82 md:h-82 rounded-full object-cover border-4 border-white/10 shadow-2xl" 
             />
           </div>
         </motion.div>
@@ -140,7 +140,7 @@ export default function Hero() {
         {/* Text Content with better positioning */}
         <div className="text-center md:text-left text-white max-w-2xl">
           <motion.h2 
-            className={`text-6xl md:text-7xl lg:text-8xl mb-6 text-gray-100 ${smooch.className}`}
+            className={`text-4xl sm:text-5xl md:text-7xl lg:text-8xl mb-3 sm:mb-4 md:mb-6 text-gray-100 ${smooch.className}`}
             initial={{ opacity: 0, x: -50 }}
             animate={helloControls}
             whileInView={{ opacity: 1, x: 0 }}
@@ -151,7 +151,7 @@ export default function Hero() {
           </motion.h2>
           
           <motion.h1 
-            className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent leading-tight"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black mb-3 sm:mb-4 md:mb-6 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent leading-tight"
             initial={{ opacity: 0, x: -50 }}
             animate={nameControls}
             whileInView={{ opacity: 1, x: 0 }}
@@ -162,7 +162,7 @@ export default function Hero() {
           </motion.h1>
           
           <motion.div
-            className="h-16 md:h-20 flex items-center mb-8"
+            className="h-12 sm:h-14 md:h-20 flex items-center justify-center md:justify-start mb-6 md:mb-8"
             initial={{ opacity: 0, x: -50 }}
             animate={roleControls}
             whileInView={{ opacity: 1, x: 0 }}
@@ -171,7 +171,7 @@ export default function Hero() {
           >
             <motion.p 
               key={currentRoleIndex}
-              className="text-2xl md:text-3xl font-medium text-gray-200"
+              className="text-lg sm:text-xl md:text-3xl font-medium text-gray-200"
               initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
@@ -194,12 +194,12 @@ export default function Hero() {
             <a
               href="/resume.pdf"
               download
-              className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 rounded-full shadow-2xl hover:shadow-purple-500/25 transform hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+              className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 rounded-full shadow-2xl hover:shadow-purple-500/25 transform hover:scale-105 transition-all duration-300 relative overflow-hidden group"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="relative flex items-center gap-2">
                 Download Resume
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </span>
