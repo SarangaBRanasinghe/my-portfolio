@@ -21,7 +21,7 @@ export default function Hero() {
   const roleControls = useAnimation();
   const buttonControls = useAnimation();
   
-  const roles = ["Software Engineer", "UI UX Designer"];
+  const roles = ["Software Engineer", "UI/UX Designer"];
 
   // Generate particles only on client side after component mounts
   useEffect(() => {
@@ -177,7 +177,7 @@ export default function Hero() {
               exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
               transition={{ 
                 duration: 0.6,
-                ease: [0.4, 0, 0.2, 1] // Material Design easing
+                ease: [0.4, 0, 0.2, 1] 
               }}
             >
               {roles[currentRoleIndex]}
