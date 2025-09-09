@@ -18,7 +18,7 @@ export default function ProjectsPage() {
   const categories = [
     { id: 'all', label: 'All Projects', count: projectList.length },
     { id: 'web', label: 'Web Development', count: projectList.filter(p => 
-      p.tech.some(t => t.icon.includes('angular') || t.icon.includes('laravel') || t.icon.includes('html5'))
+      p.tech.some(t => t.icon.includes('angular') || t.icon.includes('laravel') || t.icon.includes('html5') || t.icon.includes('nextjs'))
     ).length },
     { id: 'ui', label: 'UI/UX Design', count: projectList.filter(p => 
       p.tech.some(t => t.icon.includes('figma'))
@@ -48,7 +48,8 @@ export default function ProjectsPage() {
               t.icon.includes('angular') || 
               t.icon.includes('laravel') || 
               t.icon.includes('html5') ||
-              t.icon.includes('nodejs')
+              t.icon.includes('nodejs') ||
+              t.icon.includes('nextjs')
             );
           case 'ui':
             return project.tech.some(t => t.icon.includes('figma'));

@@ -28,6 +28,18 @@ export const projectList = [
       color: 'from-pink-500 to-red-50'
     },
     {
+        slug: 'ai-essay-generator',
+      title: 'AI ESSAY GENERATOR',
+      description:'AI Essay Generator is a web-based project that allows users to generate structured essays with customizable tone, word count, academic level, and citation style, and download them as PDFs.',
+      tech: [
+         { name:'', icon:'/skill-icons--nextjs-dark.svg' },
+         { name: '', icon: '/logos--tailwindcss-icon.svg' }
+      ],
+      link:'https://essay-generation-dp4y.vercel.app/',
+      image:'/ai essay generator.png',
+      color: 'from-green-400 to-blue-500'
+    },
+    {
         slug: 'kidney-track-mobile-app-ui',
       title: 'KIDNEY TRACK – MOBILE APP UI',
       description: 'User-friendly, accessible, and research-aligned interfaces tailored to medical requirements and user needs.',
