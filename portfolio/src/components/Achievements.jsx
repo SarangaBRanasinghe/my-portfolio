@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 const achievements = [
   {
@@ -38,6 +38,30 @@ export default function Achievements() {
   const [currentAchievement, setCurrentAchievement] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const achievement = achievements[currentAchievement];
+
+  // Auto-cycle images function
+  const autoNextImage = useCallback(() => {
+    if (!isPaused && achievement.images.length > 1) {
+      setCurrentImage((prev) =>
+        prev === achievement.images.length - 1 ? 0 : prev + 1
+      );
+    }
+  }, [isPaused, achievement.images.length]);
+
+  // Auto-cycle effect
+  useEffect(() => {
+    const imageInterval = setInterval(autoNextImage, 4000); // Change image every 4 seconds
+    
+    return () => clearInterval(imageInterval);
+  }, [autoNextImage]);
+
+  // Reset current image when achievement changes
+  useEffect(() => {
+    setCurrentImage(0);
+  }, [currentAchievement]);
 
   const switchAchievement = (newIndex) => {
     if (isAnimating || newIndex === currentAchievement) return;
@@ -62,20 +86,27 @@ export default function Achievements() {
   const prevImage = () => {
     setCurrentImage((prev) =>
       prev === 0
-        ? achievements[currentAchievement].images.length - 1
+        ? achievement.images.length - 1
         : prev - 1
     );
   };
 
   const nextImage = () => {
     setCurrentImage((prev) =>
-      prev === achievements[currentAchievement].images.length - 1
+      prev === achievement.images.length - 1
         ? 0
         : prev + 1
     );
   };
 
-  const achievement = achievements[currentAchievement];
+  // Handle mouse enter/leave for pausing auto-cycle
+  const handleImageMouseEnter = () => {
+    setIsPaused(true);
+  };
+
+  const handleImageMouseLeave = () => {
+    setIsPaused(false);
+  };
 
   // Animation variants
   const containerVariants = {
@@ -127,11 +158,7 @@ export default function Achievements() {
       >
         {/* Header */}
         <div className="text-center mb-16">
-          <motion.div variants={itemVariants}>
-            <span className="inline-block px-6 py-2 bg-purple-500/20 backdrop-blur-sm rounded-full text-purple-300 text-sm font-medium mb-6 border border-purple-500/30">
-              My Journey
-            </span>
-          </motion.div>
+         
           
           <motion.h2
             className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent"
@@ -196,25 +223,53 @@ export default function Achievements() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4 }}
+                  onMouseEnter={handleImageMouseEnter}
+                  onMouseLeave={handleImageMouseLeave}
                 >
                   <div className="relative h-full rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-purple-600/20 to-blue-600/20 backdrop-blur-sm border border-white/10">
-                    <Image
-                      src={achievement.images[currentImage]}
-                      alt={achievement.title}
-                      fill
-                      className="object-cover"
-                    />
+                    <motion.div
+                      key={currentImage}
+                      initial={{ opacity: 0, scale: 1.1 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6 }}
+                      className="absolute inset-0"
+                    >
+                      <Image
+                        src={achievement.images[currentImage]}
+                        alt={achievement.title}
+                        fill
+                        className="object-cover transition-transform duration-700 hover:scale-105"
+                      />
+                    </motion.div>
                     
                     {/* Image overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    
+                    {/* Auto-cycle progress indicator */}
+                    {achievement.images.length > 1 && !isPaused && (
+                      <div className="absolute top-4 left-4 right-4">
+                        <div className="w-full h-1 bg-white/20 rounded-full overflow-hidden">
+                          <motion.div
+                            className="h-full bg-gradient-to-r from-blue-400 to-purple-400"
+                            initial={{ width: "0%" }}
+                            animate={{ width: "100%" }}
+                            key={currentImage}
+                            transition={{
+                              duration: 4,
+                              ease: "linear"
+                            }}
+                          />
+                        </div>
+                      </div>
+                    )}
                   </div>
                   
                   {/* Image navigation */}
                   {achievement.images.length > 1 && (
-                    <div className="absolute inset-0 flex justify-between items-center px-4">
+                    <div className="absolute inset-0 flex justify-between items-center px-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
                       <motion.button
                         onClick={prevImage}
-                        className="w-10 h-10 flex items-center justify-center bg-black/30 hover:bg-black/50 backdrop-blur-md rounded-full text-white transition-all duration-300 border border-white/20"
+                        className="w-10 h-10 flex items-center justify-center bg-black/50 hover:bg-black/70 backdrop-blur-md rounded-full text-white transition-all duration-300 border border-white/20 shadow-lg"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
@@ -225,7 +280,7 @@ export default function Achievements() {
                       
                       <motion.button
                         onClick={nextImage}
-                        className="w-10 h-10 flex items-center justify-center bg-black/30 hover:bg-black/50 backdrop-blur-md rounded-full text-white transition-all duration-300 border border-white/20"
+                        className="w-10 h-10 flex items-center justify-center bg-black/50 hover:bg-black/70 backdrop-blur-md rounded-full text-white transition-all duration-300 border border-white/20 shadow-lg"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
@@ -240,16 +295,30 @@ export default function Achievements() {
                   {achievement.images.length > 1 && (
                     <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-1.5">
                       {achievement.images.map((_, index) => (
-                        <div
+                        <button
                           key={index}
-                          className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                          onClick={() => setCurrentImage(index)}
+                          className={`w-2 h-2 rounded-full transition-all duration-300 hover:scale-110 ${
                             index === currentImage 
-                              ? 'bg-white scale-110' 
-                              : 'bg-white/50'
+                              ? 'bg-white scale-110 shadow-lg' 
+                              : 'bg-white/50 hover:bg-white/70'
                           }`}
                         />
                       ))}
                     </div>
+                  )}
+
+                  {/* Pause indicator */}
+                  {achievement.images.length > 1 && isPaused && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="absolute top-4 right-4 bg-black/50 backdrop-blur-md rounded-full p-2 border border-white/20"
+                    >
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                      </svg>
+                    </motion.div>
                   )}
                 </motion.div>
               </div>
