@@ -33,6 +33,7 @@ export default function Projects() {
       image: '/laravelp.png',
       color: 'from-pink-500 to-red-50'
     },
+  
     {
       title: 'KIDNEY TRACK – MOBILE APP UI',
       description: 'User-friendly, accessible, and research-aligned interfaces tailored to medical requirements and user needs.',
