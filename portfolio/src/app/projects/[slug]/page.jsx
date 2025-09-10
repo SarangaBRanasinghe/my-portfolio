@@ -31,7 +31,7 @@ export default function ProjectDetailPage({ params }) {
     if (!project) return [];
     
     const getProjectCategory = (proj) => {
-      if (proj.tech.some(t => t.icon.includes('angular') || t.icon.includes('laravel') || t.icon.includes('html5') || t.icon.includes('nodejs'))) {
+      if (proj.tech.some(t => t.icon.includes('angular') || t.icon.includes('laravel') || t.icon.includes('html5') || t.icon.includes('nodejs') || t.icon.includes('nextjs'))) {
         return 'web';
       }
       if (proj.tech.some(t => t.icon.includes('figma'))) {
