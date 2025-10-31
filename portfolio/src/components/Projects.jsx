@@ -44,7 +44,39 @@ export default function Projects() {
     image:'/ai essay generator.png',
     color: 'from-green-400 to-blue-500'
   },
-    {
+  {
+    title: 'PERSONAL PORTFOLIO WEBSITE',
+    description: 'A modern, responsive personal portfolio website built with Next.js and Tailwind CSS to showcase projects, skills, and experience.',
+    tech: [
+      { name:'', icon:'/skill-icons--nextjs-dark.svg' },
+      { name: '', icon: '/logos--tailwindcss-icon.svg' }
+    ],
+    link: 'https://my-portfolio-96z5.vercel.app/',
+    image: '/portfolio preview.png',
+    color: 'from-yellow-400 to-orange-500'
+
+  },
+  {
+    title: 'ONLINE GROCERY SHOPPING APP UI',
+    description: 'A clean and user-friendly UI design for an online grocery shopping app, featuring easy navigation, vibrant product displays, and a seamless shopping experience.',
+    tech: [
+      { name: '', icon: '/logos--figma.svg' }
+    ],
+    link:'https://dribbble.com/shots/26631414-SWIFTDROP-Online-Grocery-Mobile-App?utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=SWIFTDROP-Online%20Grocery%20Mobile%20App&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=SWIFTDROP-Online%20Grocery%20Mobile%20App&utm_medium=Social_Share',
+    image: '/grocery app ui.png',
+    color: 'from-green-400 to-yellow-500'
+  },
+  {
+    title: 'EVENT PLANNING SYSTEM UI DESIGN',
+    description: 'A modern and intuitive UI design for an event management and planning system, focusing on user-friendly navigation and vibrant visuals to enhance the event planning experience for organizers and attendees alike.',
+    tech: [
+      { name: '', icon: '/logos--figma.svg' }
+    ],
+    link: 'https://dribbble.com/shots/26689140-FESTIVO-Event-Planning-System?utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=FESTIVO%20-%20Event%20Planning%20System&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=FESTIVO%20-%20Event%20Planning%20System&utm_medium=Social_Share',
+    image: '/event management.png',
+    color: 'from-blue-400 to-rose-500'
+  },
+  {
       title: 'KIDNEY TRACK – MOBILE APP UI',
       description: 'User-friendly, accessible, and research-aligned interfaces tailored to medical requirements and user needs.',
       tech: [
@@ -139,8 +171,8 @@ export default function Projects() {
   ];
 
   const projectStats = [
-    { number: '02+', label: 'Web Projects' },
-    { number: '07+', label: 'UI/UX Designs' },
+    { number: '04+', label: 'Web Projects' },
+    { number: '11+', label: 'UI/UX Designs' },
     { number: '01+', label: 'Other' },
   ];
 

@@ -71,7 +71,7 @@ export const projectList = [
           name: '', icon: '/logos--figma.svg'
         }
       ],
-      link:'https://dribbble.com/shots/26631414-SWIFTDROP-Online-Grocery-Mobile-App?utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=SWIFTDROP-Online%20Grocery%20Mobile%20App&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=SWIFTDROP-Online%20Grocery%20Mobile%20App&utm_medium=Social_Share',
+      link:'https://dribbble.com/shots/26689140-FESTIVO-Event-Planning-System?utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=FESTIVO%20-%20Event%20Planning%20System&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=Saranga183&utm_content=FESTIVO%20-%20Event%20Planning%20System&utm_medium=Social_Share',
       image: '/event management.png',
       color: 'from-blue-400 to-rose-500'
     },
