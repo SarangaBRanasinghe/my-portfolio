@@ -48,7 +48,7 @@ export const projectList = [
         { name: '', icon: '/logos--tailwindcss-icon.svg' }
       ],
       link: 'https://my-portfolio-96z5.vercel.app/',
-      image: '/portfolio.png',
+      image: '/portfolio preview.png',
       color: 'from-yellow-400 to-orange-500'
     },
     {
